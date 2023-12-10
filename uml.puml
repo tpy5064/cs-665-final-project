@@ -1,0 +1,123 @@
+@startuml
+
+' Subjects
+interface WeatherObserver {
+  update(data: WeatherData, config: WeatherInfoConfig)
+}
+
+class WeatherSubject {
+  - observers: List<WeatherObserver>
+  - data: WeatherData
+  + addObserver(o: WeatherObserver)
+  + notifyObservers(config: WeatherInfoConfig)
+  + setData(data: WeatherData)
+}
+
+' Observers
+class TemperatureObserver implements WeatherObserver {
+  update(data: WeatherData, config: WeatherInfoConfig)
+}
+
+class HumidityObserver implements WeatherObserver {
+  update(data: WeatherData, config: WeatherInfoConfig)
+}
+
+class PrecipitationObserver implements WeatherObserver {
+  update(data: WeatherData, config: WeatherInfoConfig)
+}
+
+class WindSpeedObserver implements WeatherObserver {
+  update(data: WeatherData, config: WeatherInfoConfig)
+}
+
+' Data
+class WeatherData {
+  - temperature: float
+  - humidity: float
+  - precipitation: float
+  - windSpeed: float
+}
+
+' APIs
+class GeocoderAPI extends Task {
+  + fetch(location: str): LocationData
+}
+
+class UriBuilder {
+  + buildUri(config: WeatherInfoConfig): str
+}
+
+' Tasks
+interface Callback {
+  call()
+}
+
+abstract class Task {
+  + fetchWithCallback(apiUrl: str, callback: Callback)
+  + fetch(apiUrl: str)
+}
+
+class WeatherAPI extends Task {
+  - weatherSubject: WeatherSubject
+  + WeatherAPI(weatherSubject: WeatherSubject)
+}
+
+' Helpers
+class LocationData {
+  - lat: String
+  - lon: String
+  + getLat(): String
+  + setLat(lat: String)
+  + getLon(): String
+  + setLon(lon: String)
+}
+
+class WeatherInfoConfig {
+  - lat: String
+  - lon: String
+  - tempUnit: String
+  - windSpeedUnit: String
+  - precipUnit: String
+  + setLat(lat: String)
+  + setLon(lon: String)
+  + setTempUnit(tempUnit: String)
+  + setWindSpeedUnit(windSpeedUnit: String)
+  + setPrecipUnit(precipUnit: String)
+  + getLat(): String
+  + getLon(): String
+  + getTempUnit(): String
+  + getWindSpeedUnit(): String
+  + getPrecipUnit(): String
+}
+
+class Timer {
+  - startTime: long
+  - endTime: long
+  + start()
+  + stop()
+  + getTime(): long
+}
+
+' Main
+class Main {
+  + main(args: String[])
+}
+
+' Relationships
+WeatherSubject <-> WeatherData
+WeatherSubject "1" *-- "1..N" WeatherObserver : contains
+WeatherObserver --> WeatherData
+
+
+' Dependencies
+Main --> WeatherSubject
+Main --> LocationData
+Main --> WeatherInfoConfig
+UriBuilder --> WeatherInfoConfig
+Task --> Callback
+Main --> Timer
+Main --> WeatherAPI
+Main --> GeocoderAPI
+Main --> UriBuilder
+
+@enduml
