@@ -1,29 +1,30 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Tianqi Yang                |
+| Date         | 12/10/2023                 |
+| Course       | Fall                       |
+| Assignment # | Final Project              |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+This is a live weather app written in Java using the callback, template and observer patterns in tandem. The user is 
+asked to input a location, his/her preferred units for weather related information (temperature, wind speed and precipitation)
+and queries both a geocoding API returns the weather data for that location.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/tpy5064/cs-665-final-project
 
 # Implementation Description 
-
-
-For each assignment, please answer the following:
-
-- Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
-- Discuss the simplicity and understandability of your implementation, ensuring that it is
-easy for others to read and maintain.
-- Describe how you have avoided duplicated code and why it is important.
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
+- The user is asked to first input a location, and the location is looked up in a geocoding API to find its coordinates,
+as the weather API uses coordinates. Then, the user is asked to choose units that they wish to display the weather
+info in. This information is passed to a config class, which then is used by the UriBuilder class to create a formatted
+URI for the HTTP request to the weather API. The UriBuilder class is a template method class that builds the URI
+procedurally in the template method pattern.
+- Then, the built URI is used to request the weather info. The weather info is fetched with a callback to update
+all the observers. This ensures that the API data is fully receive and parsed by the DAO (Data Access Objects), and only
+then are the subscribed observers are notified and updated.
+- The usage of the observer pattern is useful because future functionality can be easily added by creating more 
+implementations of WeatherObserver, and can be easily added to the subject
 
 
 # Maven Commands

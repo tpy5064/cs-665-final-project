@@ -42,7 +42,7 @@ public class Main {
       WeatherInfoConfig config = new WeatherInfoConfig();
       UriBuilder uriBuilder = new UriBuilder();
       GeocoderAPI geocoderService = new GeocoderAPI();
-      Task apiService = new WeatherAPI(weatherSubject);
+      Task apiService = new WeatherAPI(weatherSubject); //Target weather subject is contained within the api service
 
       System.out.println("Please enter a location to find its weather info:");
       String location = scanner.nextLine();
@@ -51,13 +51,42 @@ public class Main {
       config.setLat(locData.getLat());
       config.setLon(locData.getLon());
 
-      //Configure units
-      System.out.println("Please enter desired temperature units (celsius/fahrenheit): ");
-      config.setTempUnit(scanner.nextLine());
-      System.out.println("Please enter desired wind speed units (kmh/mph): ");
-      config.setWindSpeedUnit(scanner.nextLine());
-      System.out.println("Please enter desired precipitation units (mm/inch): ");
-      config.setPrecipUnit(scanner.nextLine());
+      //Configure temperature unit
+      while(true) {
+        System.out.println("Please enter desired temperature units (celsius/fahrenheit): ");
+        String tempUnit = scanner.nextLine();
+        System.out.println(tempUnit);
+        if (!tempUnit.equals("celsius") && !tempUnit.equals("fahrenheit")) {
+          System.out.println("Unit not legal, please enter again!");
+          continue;
+        }
+        config.setTempUnit(tempUnit);
+        break;
+      }
+
+      //Configure wind speed unit
+      while(true) {
+        System.out.println("Please enter desired wind speed units (kmh/mph): ");
+        String windSpeedUnit = scanner.nextLine();
+        if (!windSpeedUnit.equals("kmh") && !windSpeedUnit.equals("mph")) {
+          System.out.println("Unit not legal, please enter again!");
+          continue;
+        }
+        config.setWindSpeedUnit(windSpeedUnit);
+        break;
+      }
+
+      //Configure precipitation unit
+      while(true) {
+        System.out.println("Please enter desired precipitation units (mm/inch): ");
+        String precipUnit = scanner.nextLine();
+        if(!precipUnit.equals("mm") && !precipUnit.equals("inch")) {
+          System.out.println("Unit not legal, please enter again!");
+          continue;
+        }
+        config.setPrecipUnit(precipUnit);
+        break;
+      }
 
       //Build the URI
       String configuredUri = uriBuilder.buildUri(config);
