@@ -9,7 +9,7 @@
 
 package edu.bu.met.cs665.observers;
 
-import edu.bu.met.cs665.dataObj.WeatherData;
+import edu.bu.met.cs665.DAOs.WeatherData;
 import edu.bu.met.cs665.helpers.WeatherInfoConfig;
 
 public class TemperatureObserver implements WeatherObserver{

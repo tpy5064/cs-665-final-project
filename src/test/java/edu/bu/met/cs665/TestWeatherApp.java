@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import edu.bu.met.cs665.apis.GeocoderAPI;
-import edu.bu.met.cs665.dataObj.LocationData;
-import edu.bu.met.cs665.dataObj.WeatherData;
+import edu.bu.met.cs665.DAOs.LocationData;
+import edu.bu.met.cs665.DAOs.WeatherData;
 import edu.bu.met.cs665.helpers.WeatherInfoConfig;
 import edu.bu.met.cs665.template.UriBuilder;
 import org.junit.Test;

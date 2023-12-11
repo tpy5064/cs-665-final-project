@@ -13,7 +13,7 @@ package edu.bu.met.cs665.apis;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.bu.met.cs665.dataObj.LocationData;
+import edu.bu.met.cs665.DAOs.LocationData;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;

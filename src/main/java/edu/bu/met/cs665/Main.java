@@ -12,7 +12,7 @@ package edu.bu.met.cs665;
 import edu.bu.met.cs665.apis.GeocoderAPI;
 import edu.bu.met.cs665.apis.WeatherAPI;
 import edu.bu.met.cs665.callback.Task;
-import edu.bu.met.cs665.dataObj.LocationData;
+import edu.bu.met.cs665.DAOs.LocationData;
 import edu.bu.met.cs665.helpers.Timer;
 import edu.bu.met.cs665.helpers.WeatherInfoConfig;
 import edu.bu.met.cs665.observers.HumidityObserver;
@@ -55,7 +55,6 @@ public class Main {
       while(true) {
         System.out.println("Please enter desired temperature units (celsius/fahrenheit): ");
         String tempUnit = scanner.nextLine();
-        System.out.println(tempUnit);
         if (!tempUnit.equals("celsius") && !tempUnit.equals("fahrenheit")) {
           System.out.println("Unit not legal, please enter again!");
           continue;

@@ -6,7 +6,7 @@
  * Description: The Data-Access-Object for the WeatherAPI to parse the incoming JSON object.
  */
 
-package edu.bu.met.cs665.dataObj;
+package edu.bu.met.cs665.DAOs;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class WeatherData {

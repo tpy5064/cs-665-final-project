@@ -12,7 +12,7 @@ package edu.bu.met.cs665.apis;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import edu.bu.met.cs665.subjects.WeatherSubject;
 import edu.bu.met.cs665.callback.Task;
-import edu.bu.met.cs665.dataObj.WeatherData;
+import edu.bu.met.cs665.DAOs.WeatherData;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;

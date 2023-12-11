@@ -6,7 +6,7 @@
  * Description: The Data-Access-Object for the GeocoderAPI to parse the incoming JSON object.
  */
 
-package edu.bu.met.cs665.dataObj;
+package edu.bu.met.cs665.DAOs;
 
 public class LocationData {
     private String lat;

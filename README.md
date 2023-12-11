@@ -26,7 +26,9 @@ then are the subscribed observers are notified and updated. The **callback patte
 of this functionality.
 - The usage of the **observer pattern** is useful because future functionality can be easily added by creating more 
 implementations of WeatherObserver, and can be easily added to the subject
-
+- Future improvements can include containing the large amount of code within the Main class to become another
+template method, which runs the individual steps of the loop outside of Main, improving readability.
+- 
 
 # Maven Commands
 

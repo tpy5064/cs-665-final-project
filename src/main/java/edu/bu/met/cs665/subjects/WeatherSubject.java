@@ -9,7 +9,7 @@
 
 package edu.bu.met.cs665.subjects;
 
-import edu.bu.met.cs665.dataObj.WeatherData;
+import edu.bu.met.cs665.DAOs.WeatherData;
 import edu.bu.met.cs665.helpers.WeatherInfoConfig;
 import edu.bu.met.cs665.observers.WeatherObserver;
 
