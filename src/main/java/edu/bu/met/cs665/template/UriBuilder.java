@@ -12,7 +12,7 @@ package edu.bu.met.cs665.template;
 import edu.bu.met.cs665.helpers.WeatherInfoConfig;
 
 public class UriBuilder {
-    private String templateUri = "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}" +
+    private final String templateUri = "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}" +
             "&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&" +
             "temperature_unit={temp_unit}&wind_speed_unit={wind_speed_unit}" +
             "&precipitation_unit={precipitation_unit}&timezone=America%2FNew_York";
@@ -21,6 +21,7 @@ public class UriBuilder {
         /**
          * The template method to build the URI
          * @param config The user configured options for units and location.
+         * @return The URI that is updated with all user specified info.
          */
         return templateUri.replace("{lat}", config.getLat())
                 .replace("{lon}", config.getLon())

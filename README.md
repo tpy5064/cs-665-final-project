@@ -18,12 +18,13 @@ https://github.com/tpy5064/cs-665-final-project
 - The user is asked to first input a location, and the location is looked up in a geocoding API to find its coordinates,
 as the weather API uses coordinates. Then, the user is asked to choose units that they wish to display the weather
 info in. This information is passed to a config class, which then is used by the UriBuilder class to create a formatted
-URI for the HTTP request to the weather API. The UriBuilder class is a template method class that builds the URI
+URI for the HTTP request to the weather API. The UriBuilder class is a **template method pattern** class that builds the URI
 procedurally in the template method pattern.
 - Then, the built URI is used to request the weather info. The weather info is fetched with a callback to update
 all the observers. This ensures that the API data is fully receive and parsed by the DAO (Data Access Objects), and only
-then are the subscribed observers are notified and updated.
-- The usage of the observer pattern is useful because future functionality can be easily added by creating more 
+then are the subscribed observers are notified and updated. The **callback pattern** is implemented in the implementation
+of this functionality.
+- The usage of the **observer pattern** is useful because future functionality can be easily added by creating more 
 implementations of WeatherObserver, and can be easily added to the subject
 
 
