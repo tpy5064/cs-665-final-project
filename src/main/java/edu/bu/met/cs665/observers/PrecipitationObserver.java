@@ -23,7 +23,7 @@ public class PrecipitationObserver implements WeatherObserver{
         if(config.getPrecipUnit().equals("inch")) {
             //Necessary as "mms" does not make sense, hence the conditional print values.
             System.out.println("Precipitation: " + data.getCurrent().getPrecipitation() +
-                    " " + config.getPrecipUnit() + "s");
+                    " " + config.getPrecipUnit() + "es");
         } else {
             System.out.println("Precipitation: " + data.getCurrent().getPrecipitation() +
                     " " + config.getPrecipUnit());
